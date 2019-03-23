@@ -60,12 +60,6 @@ public abstract class LtiLaunchSecurityConfig extends WebMvcConfigurerAdapter {
                 .addFilterBefore(configureProcessingFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests().antMatchers("/lti/**").permitAll().and()
                 .headers()
-//                .addHeaderWriter(new XFrameOptionsHeaderWriter(new StaticAllowFromStrategy(new URI(canvasUrl))))
-//                .addHeaderWriter(new StaticHeadersWriter("Content-Security-Policy",
-//                        "default-src 'self' https://s.ksucloud.net https://*.instructure.com; " +
-//                        "font-src 'self' https://s.ksucloud.net https://*.instructure.com; " +
-//                        "script-src 'self' 'unsafe-inline' https://ajax.googleapis.com; " +
-//                        "style-src 'self' 'unsafe-inline' https://*.instructure.com https://www.k-state.edu" ))
                     .addHeaderWriter(new StaticHeadersWriter("P3P", "CP=\"This is just to make IE happy with cookies in this iframe\""))
                     ;
         }
