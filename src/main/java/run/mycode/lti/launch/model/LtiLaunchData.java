@@ -22,13 +22,10 @@ public class LtiLaunchData {
     private String resourceLinkId;
     private String lisPersonNameFamily;
     private Integer launchPresentationWidth;
-    private String customCanvasUserLoginId;
-    private String customCanvasEnrollmentState;
     private String launchPresentationReturnUrl;
     private String toolConsumerInfoVersion;
     private String toolConsumerInstanceContactEmail;
     private String userId;
-    private String customCanvasApiDomain;
     private String ltiMessageType;
     private String toolConsumerInfoProductFamilyCode;
     private String toolConsumerInstanceGuid;
@@ -36,14 +33,12 @@ public class LtiLaunchData {
     private String launchPresentationDocumentTarget;
     private String contextTitle;
     private String toolConsumerInstanceName;
-    private String customCanvasCourseId;
     private String lisPersonSourcedid;
     private String lisPersonNameFull;
     private Integer launchPresentationHeight;
     private String resourceLinkTitle;
     private String contextId;
     private String roles;
-    private String customCanvasUserId;
     private String lisPersonContactEmailPrimary;
     private String lisPersonNameGiven;
     private String launchPresentationLocale;
