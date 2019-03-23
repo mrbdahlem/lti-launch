@@ -1,6 +1,5 @@
 package run.mycode.lti.launch.spring.config;
 
-import javax.servlet.http.HttpServletRequest;
 import run.mycode.lti.launch.oauth.LtiConsumerDetailsService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth.provider.token.InMemoryProviderTokenServices;
 import org.springframework.security.oauth.provider.token.OAuthProviderTokenServices;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 import run.mycode.lti.launch.oauth.LtiAuthenticationHandler;
 
 /**
@@ -27,7 +25,7 @@ import run.mycode.lti.launch.oauth.LtiAuthenticationHandler;
  */
 //@Configuration
 //@EnableWebMvcSecurity
-public class LtiLaunchSecurityConfig extends WebMvcConfigurerAdapter {
+public abstract class LtiLaunchSecurityConfig extends WebMvcConfigurerAdapter {
 
     private static final Logger LOG = Logger.getLogger(LtiLaunchSecurityConfig.class);
 
