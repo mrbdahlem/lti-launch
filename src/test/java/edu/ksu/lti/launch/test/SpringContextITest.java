@@ -1,9 +1,5 @@
 package edu.ksu.lti.launch.test;
 
-
-import edu.ksu.lti.launch.controller.OauthController;
-import edu.ksu.lti.launch.oauth.LtiLaunch;
-import edu.ksu.lti.launch.service.OauthTokenService;
 import edu.ksu.lti.launch.spring.config.TestApplicationConfig;
 import edu.ksu.lti.launch.spring.config.TestSpringConfig;
 import edu.ksu.lti.launch.controller.TestLtiLaunchController;
@@ -27,20 +23,11 @@ import static org.junit.Assert.assertNotNull;
 public class SpringContextITest {
     @Autowired
     private TestLtiLaunchController testLtiLaunchController;
-    @Autowired
-    private OauthController oauthController;
-    @Autowired
-    private LtiLaunch ltiLaunch;
-    @Autowired
-    private OauthTokenService oauthTokenService;
 
     @Test
     public void testSpringContext() {
         //The test will fail if the spring context is not setup appropriately.
         assertNotNull("Expected testLtiLaunchController to be instantiated by Spring", testLtiLaunchController);
-        assertNotNull("Expected oauthController to be instantiated by Spring", oauthController);
-        assertNotNull("Expected ltiLaunchCanvas to be instantiated by Spring", ltiLaunch);
-        assertNotNull("Expected oauthTokenService to be instantiated by Spring", oauthTokenService);
     }
 
 }

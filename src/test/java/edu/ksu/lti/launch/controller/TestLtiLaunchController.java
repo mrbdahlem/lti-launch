@@ -1,5 +1,6 @@
 package edu.ksu.lti.launch.controller;
 
+import run.mycode.lti.launch.controller.LtiLaunchController;
 import org.springframework.stereotype.Controller;
 /* Simply a concrete implementation of LtiLaunchController to test
  * the spring context
