@@ -3,8 +3,9 @@ package run.mycode.lti.launch.oauth;
 import java.util.Collections;
 
 import javax.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import org.apache.log4j.Logger;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth.provider.ConsumerAuthentication;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LtiAuthenticationHandler implements OAuthAuthenticationHandler {
 
-    private static final Logger LOG = Logger.getLogger(LtiAuthenticationHandler.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LtiAuthenticationHandler.class);
 
     @Override
     public Authentication createAuthentication(HttpServletRequest request,

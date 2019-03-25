@@ -1,12 +1,11 @@
 package run.mycode.lti.launch.model;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to hold the POST data from a Canvas LTI launch request. Yes, the method
@@ -15,7 +14,7 @@ import java.util.Map;
  */
 public class LtiLaunchData {
 
-    private static final Logger LOG = Logger.getLogger(LtiLaunchData.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LtiLaunchData.class);
 
     private String ltiVersion;
     private String contextLabel;
@@ -317,12 +316,15 @@ public class LtiLaunchData {
     }
 
     public void setRoles(String roles) {
+        if (roles == null) {
+            roles = "";
+        }
+        
         LOG.debug("got LTI roles: " + roles);
         this.roles = roles;
-
+        
         List<InstitutionRole> list = new ArrayList<>();
-        String[] splitRoles = StringUtils.split(StringUtils.trimToEmpty(roles),
-                ",");
+        String[] splitRoles = roles.trim().split(",");
         for (String splitRole : splitRoles) {
             list.add(InstitutionRole.fromString(splitRole));
         }

@@ -1,7 +1,7 @@
 package run.mycode.lti.launch.oauth;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth.common.OAuthException;
 import org.springframework.security.oauth.common.signature.SharedConsumerSecretImpl;
@@ -19,7 +19,7 @@ import run.mycode.lti.launch.service.LtiLaunchKeyService;
  */
 @Component
 public class LtiConsumerDetailsService implements ConsumerDetailsService {
-    private static final Logger LOG = Logger.getLogger(LtiConsumerDetailsService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LtiConsumerDetailsService.class);
 
     private final LtiLaunchKeyService ltiKeyService;
 
@@ -30,11 +30,11 @@ public class LtiConsumerDetailsService implements ConsumerDetailsService {
 
     @Override
     public ConsumerDetails loadConsumerByConsumerKey(String consumerKey) {
-        if(StringUtils.isBlank(consumerKey)) {
+        if(consumerKey.trim().isEmpty()) {
             throw new OAuthException("Supplied LTI key can not be blank");
         }
         String ltiKeySecret = ltiKeyService.findSecretForKey(consumerKey);
-        if(StringUtils.isBlank(ltiKeySecret)) {
+        if(ltiKeySecret.trim().isEmpty()) {
             throw new OAuthException("No secret found for LTI key " + consumerKey);
         }
 
