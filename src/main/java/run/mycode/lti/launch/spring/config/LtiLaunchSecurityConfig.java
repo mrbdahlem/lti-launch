@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.oauth.provider.filter.ProtectedResourceProcessingFilter;
 import org.springframework.security.oauth.provider.nonce.InMemoryNonceServices;
 import org.springframework.security.web.header.writers.StaticHeadersWriter;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth.provider.token.InMemoryProviderTokenServices;
@@ -27,7 +26,7 @@ import run.mycode.lti.launch.oauth.LtiAuthenticationHandler;
  */
 //@Configuration
 //@EnableWebMvcSecurity
-public abstract class LtiLaunchSecurityConfig extends WebMvcConfigurerAdapter {
+public abstract class LtiLaunchSecurityConfig { //extends WebMvcConfigurerAdapter {
 
     private static final Logger LOG = LoggerFactory.getLogger(LtiLaunchSecurityConfig.class);
 

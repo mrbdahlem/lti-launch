@@ -1,7 +1,6 @@
 package edu.ksu.lti.launch.test;
 
 import edu.ksu.lti.launch.spring.config.TestApplicationConfig;
-import edu.ksu.lti.launch.spring.config.TestSpringConfig;
 import edu.ksu.lti.launch.controller.TestLtiLaunchController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +18,7 @@ import static org.junit.Assert.assertNotNull;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {TestSpringConfig.class, TestApplicationConfig.class})
+@ContextConfiguration(classes = {TestApplicationConfig.class})
 public class SpringContextITest {
     @Autowired
     private TestLtiLaunchController testLtiLaunchController;
