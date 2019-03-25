@@ -2,7 +2,6 @@ package run.mycode.lti.launch.controller;
 
 import run.mycode.lti.launch.model.LtiLaunchData;
 import run.mycode.lti.launch.model.LtiSession;
-import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +9,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to handle the initial launch of an LTI application and creating a
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpSession;
  * up its content.
  */
 public abstract class LtiLaunchController {
-    private static final Logger LOG = Logger.getLogger(LtiLaunchController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LtiLaunchController.class);
 
     @RequestMapping(value = "/launch", method = RequestMethod.POST)
     public String ltiLaunch(@ModelAttribute LtiLaunchData ltiData, HttpSession session) throws Exception {

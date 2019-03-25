@@ -1,7 +1,9 @@
 package run.mycode.lti.launch.spring.config;
 
 import run.mycode.lti.launch.oauth.LtiConsumerDetailsService;
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -27,7 +29,7 @@ import run.mycode.lti.launch.oauth.LtiAuthenticationHandler;
 //@EnableWebMvcSecurity
 public abstract class LtiLaunchSecurityConfig extends WebMvcConfigurerAdapter {
 
-    private static final Logger LOG = Logger.getLogger(LtiLaunchSecurityConfig.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LtiLaunchSecurityConfig.class);
 
     //@Configuration
     //@Order(2)
@@ -52,7 +54,6 @@ public abstract class LtiLaunchSecurityConfig extends WebMvcConfigurerAdapter {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            LOG.info("------------------------configuring LTI HttpSecurity");
             http //.requireCsrfProtectionMatcher(new AntPathRequestMatcher("/lti**"))
                     
                     .requestMatchers()
