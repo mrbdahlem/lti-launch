@@ -45,8 +45,11 @@ public class LtiLaunchData {
     private String lisResultSourcedid;
     private String lisOutcomeServiceUrl;
 
+    private String extOutcomeDataValuesAccepted; // Canvas Extension
 
-    private String extOutcomeDataValuesAccepted;
+    private String extObservedResultSourcedid;  // Buzz Extension
+    private String extObservedUserId;           // Buzz Extension
+
     
     // computed from a CSV list in the "roles" string
     private List<InstitutionRole> rolesList;
@@ -363,12 +366,34 @@ public class LtiLaunchData {
         this.launchPresentationLocale = launchPresentationLocale;
     }
 
+    /* for canvas passback */
     public String getExt_outcome_data_values_accepted() {
         return extOutcomeDataValuesAccepted;
     }
 
     public void setExt_outcome_data_values_accepted(String extOutcomeDataValuesAccepted) {
-        LOG.info("Extension Got Outcome Data Accepted: {}", extOutcomeDataValuesAccepted);
+        LOG.debug("Extension Got Outcome Data Accepted: {}", extOutcomeDataValuesAccepted);
         this.extOutcomeDataValuesAccepted = extOutcomeDataValuesAccepted;
     }
+
+    /* for buzz passback */
+    public String getExt_observed_result_sourcedid() {
+        return extObservedResultSourcedid;
+    }
+
+    public void setExt_observed_result_sourcedid(String extObservedResultSourcedid) {
+        LOG.debug("Extension Observed Result Sorcedid: {}", extObservedResultSourcedid);
+        this.extObservedResultSourcedid = extObservedResultSourcedid;
+    }
+
+    /* for buzz passback */
+    public String getExt_observed_user_id() {
+        return extObservedUserId;
+    }
+
+    public void setExt_observed_user_id(String extObservedUserId) {
+        LOG.debug("Extension Observed User Id: {}", extObservedUserId);
+        this.extObservedUserId = extObservedUserId;
+    }
+
 }
