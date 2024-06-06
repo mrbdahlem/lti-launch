@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
  * names have underscores. I can't figure out how to make Spring MVC map a POST
  * parameter to a setter method that isn't identically named.
  */
+@SuppressWarnings("unused")
 public class LtiLaunchData {
 
     private static final Logger LOG = LoggerFactory.getLogger(LtiLaunchData.class);
@@ -43,6 +44,9 @@ public class LtiLaunchData {
     private String launchPresentationLocale;
     private String lisResultSourcedid;
     private String lisOutcomeServiceUrl;
+
+
+    private String extOutcomeDataValuesAccepted;
     
     // computed from a CSV list in the "roles" string
     private List<InstitutionRole> rolesList;
@@ -319,8 +323,8 @@ public class LtiLaunchData {
         if (roles == null) {
             roles = "";
         }
-        
-        LOG.debug("got LTI roles: " + roles);
+
+        LOG.debug("got LTI roles: {}", roles);
         this.roles = roles;
         
         List<InstitutionRole> list = new ArrayList<>();
@@ -357,5 +361,13 @@ public class LtiLaunchData {
 
     public void setLaunch_presentation_locale(String launchPresentationLocale) {
         this.launchPresentationLocale = launchPresentationLocale;
+    }
+
+    public String getExt_outcome_data_values_accepted() {
+        return extOutcomeDataValuesAccepted;
+    }
+
+    public void setExt_outcome_data_values_accepted(String extOutcomeDataValuesAccepted) {
+        this.extOutcomeDataValuesAccepted = extOutcomeDataValuesAccepted;
     }
 }
