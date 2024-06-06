@@ -368,6 +368,7 @@ public class LtiLaunchData {
     }
 
     public void setExt_outcome_data_values_accepted(String extOutcomeDataValuesAccepted) {
+        LOG.info("Extension Got Outcome Data Accepted: {}", extOutcomeDataValuesAccepted);
         this.extOutcomeDataValuesAccepted = extOutcomeDataValuesAccepted;
     }
 }
