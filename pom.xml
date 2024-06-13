@@ -98,7 +98,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.17</version>
         <configuration>
-          <skipTests>${skipTests}</skipTests>
+            <skipTests>${skipTests}</skipTests>
         </configuration>
       </plugin>
     </plugins>
@@ -300,6 +300,7 @@
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
+        <version>2.8.9</version>
     </dependency>
     
     <dependency>
@@ -316,7 +317,8 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <scope>test</scope>
+        <version>4.13.1</version>
+        <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
