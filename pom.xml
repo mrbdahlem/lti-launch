@@ -10,7 +10,13 @@
 
   <name>LTI Launch</name>
   <description>Java framework for authenticating LTI launch requests from the Canvas LMS</description>
-  <url>https://github.com/kstateome/lti-launch</url>
+  <url>https://github.com/mrbdahlem/lti-launch</url>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
    <licenses>
     <license>
@@ -39,21 +45,17 @@
   </developers>
 
   <scm>
-    <connection>scm:git:ssh://git@github.com/kstateome/lti-launch.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/kstateome/lti-launch.git</developerConnection>
-    <url>https://github.com/kstateome/lti-launch</url>
+    <connection>scm:git:https://github.com/mrbdahlem/lti-launch.git</connection>
+    <developerConnection>scm:git:https://github.com/mrbdahlem/lti-launch.git</developerConnection>
+    <url>https://github.com/mrbdahlem/lti-launch</url>
     <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
     <repository>
-      <id>ome-appdev-release</id>
-      <url>https://artifactory.ome.k-state.edu/artifactory/ome-appdev-release</url>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/mrbdahlem/lti-launch</url>
     </repository>
-    <snapshotRepository>
-      <id>ome-appdev-snapshot</id>
-      <url>https://artifactory.ome.k-state.edu/artifactory/ome-appdev-snapshot</url>
-    </snapshotRepository>
   </distributionManagement>
 
 
@@ -64,8 +66,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
       <plugin>

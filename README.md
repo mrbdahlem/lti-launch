@@ -10,6 +10,50 @@ LTI Launch is a project designed to assist in the development of Java based LTI 
 - Google GSON
 - Apache HTTP Client
 
+### CI and Package Publishing
+This repository publishes its Maven package to GitHub Packages from GitHub Actions.
+
+- Pull requests and pushes to `main` run `mvn verify`
+- Pushes to `main` publish the current snapshot version from `pom.xml`
+- Tags in the form `v1.5.0` publish a release package using that tag version
+
+If you are consuming this library from another Maven project, add the GitHub Packages repository:
+
+```xml
+<repositories>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/mrbdahlem/lti-launch</url>
+  </repository>
+</repositories>
+```
+
+Your Maven build also needs credentials for the `github` server. In GitHub Actions, that usually means providing a `settings.xml` entry that uses `${env.GITHUB_ACTOR}` and a token with package read access.
+
+```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+      <id>github</id>
+      <username>${env.GITHUB_ACTOR}</username>
+      <password>${env.GITHUB_TOKEN}</password>
+    </server>
+  </servers>
+</settings>
+```
+
+Once the package is published, downstream projects can depend on it normally:
+
+```xml
+<dependency>
+  <groupId>run.mycode</groupId>
+  <artifactId>lti-launch</artifactId>
+  <version>1.5.0-SNAPSHOT</version>
+</dependency>
+```
+
 ### Set Up
 The LTI Launch project provides a number of interfaces that must be implemented in order for it to function in any given project, as well as a few beans that must be candidates for Spring Autowiring in the LTI application that wishes to use it. As an example you can look at [a trivial LTI application](https://github.com/kstateome/lti-launch-example-webapp) which has the minimal setup for an LTI application launch. For a more complicated application you can also look at our [attendance taking LTI application](https://github.com/kstateome/lti-attendance)
 
